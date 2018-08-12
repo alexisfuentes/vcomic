@@ -1,0 +1,4 @@
+build/*
+debian/build/*
+debian/files
+src/codes/*
