@@ -2,3 +2,5 @@ build/*
 debian/build/*
 debian/files
 src/codes/*
+Main
+images/glyph-iconset-master/*
