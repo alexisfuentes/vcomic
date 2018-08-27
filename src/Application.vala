@@ -28,7 +28,7 @@ public class Vcomic.Application : Gtk.Application {
     public GLib.List<Window> windows;
 
     construct{
-        application_id = "Vcomic";
+        application_id = "com.github.alexisfuentes.vcomic";
         flags |= ApplicationFlags.HANDLES_OPEN;
 
         windows = new GLib.List<Window>();
