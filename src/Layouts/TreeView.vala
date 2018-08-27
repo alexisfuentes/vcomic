@@ -33,7 +33,8 @@ public class Vcomic.Layouts.TreeView : Gtk.TreeView {
     /**
      * Lista de imagenes a mostrar
      */
-    public void SetListImages (List<Gdk.Pixbud> Images){
+    public void SetListImages (List<Gdk.Pixbuf> Images){
+        // Mostrar miniaturas de las páginas
         Images.foreach ((img) => {
             AppendValues(img);
         });

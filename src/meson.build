@@ -23,7 +23,7 @@ executable(
 
     'Layouts/HeaderBar.vala',
     'Layouts/Main.vala',
-    'Layouts/ListStore.vala',
+    'Layouts/TreeView.vala',
     
     'Services/ActionManager.vala',
     asresources,
