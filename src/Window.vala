@@ -27,6 +27,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
 
     // Elementos publicos
     public Vcomic.Layouts.HeaderBar titlebar;
+    public Vcomic.Services.ActionManager action_manager;
 
     public Window (Vcomic.Application app_comic) {
         Object (
@@ -40,6 +41,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
         accel_group = new Gtk.AccelGroup();
         add_accel_group(accel_group);
         titlebar = new Vcomic.Layouts.HeaderBar(this);
+        action_manager = new Vcomic.Services.ActionManager(app, this);
 
         // Crear la interfaz
         build_ui();
