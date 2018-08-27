@@ -40,7 +40,11 @@ public class Vcomic.Layouts.HeaderBar : Gtk.HeaderBar {
             Gtk.IconSize.LARGE_TOOLBAR
         ));
         var btnopen = new Gtk.Button();
-        btnopen.set_label("Abrir");
+        var imbtnopen = new Gtk.Image();
+        imbtnopen.set_from_file("../data/images/16/book_open.png");
+        btnopen.set_image(imbtnopen);
+        btnopen.action_name = Vcomic.Services.ActionManager.PREFIX + 
+            Vcomic.Services.ActionManager.ACTION_OPEN_COMIC;
 
         var btnfullscreen = new Gtk.Button();
         btnfullscreen.set_label("full");
@@ -63,6 +67,19 @@ public class Vcomic.Layouts.HeaderBar : Gtk.HeaderBar {
         menu.append("Acerca de", "about_app");
 
         var about_action = new SimpleAction("about_app", null);
+
+        // Creando elemento Popover
+        var menu_popover = new Gtk.Popover(btnconfig);
+        menu_popover.position = Gtk.PositionType.BOTTOM;
+        menu_popover.set_size_request (256, -1);
+        menu_popover.modal = false;
+        menu_popover.bind_model (menu, null);
+
+        btnconfig.clicked.connect (() => {
+            menu_popover.set_visible (true);
+        });
+
         pack_end(btnconfig);
+        pack_end(btnopen);
     }
 }
