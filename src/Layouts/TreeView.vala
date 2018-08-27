@@ -19,8 +19,23 @@
 * Authored by: Alexis Fuentes <alefue21@gmail.com>
 */
 
-public class Vcomic.Layouts.ListStore : Gtk.ListStore {
+public class Vcomic.Layouts.TreeView : Gtk.TreeView {
     public weak Vcomic.Window window { get; construct; }
 
-    
+    public ListStore(){
+        Object(
+            typeof (Gdk.Pixbuf)
+        );
+        // Creamos columna que contendra las images
+        AppendColumn ("Pages", new Gtk.CellRendererPixbuf (), "pixbuf", 0);
+    }
+
+    /**
+     * Lista de imagenes a mostrar
+     */
+    public void SetListImages (List<Gdk.Pixbud> Images){
+        Images.foreach ((img) => {
+            AppendValues(img);
+        });
+    }
 }
