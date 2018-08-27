@@ -4,3 +4,4 @@ debian/files
 src/codes/*
 Main
 data/images/glyph-iconset-master/*
+post_install.py
