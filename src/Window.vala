@@ -49,7 +49,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
         // move(settings.pos_x, settings.pos_y);
         move(100, 100);
         // resize(settings.window_with, settings.window_height);
-        resize(600, 600);
+        resize(800, 600);
 
         show_app();
     }

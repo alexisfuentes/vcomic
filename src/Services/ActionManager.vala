@@ -39,6 +39,10 @@ public class Vcomic.Services.ActionManager : Object {
 
     public const string ACTION_CONFIG = "action_config";
 
+    public const string ACTION_ABOUT = "action_about";
+
+    public const string ACTION_FULLSCREEN = "action_fullscreen";
+
     public static Gee.MultiMap<string, string> action_accelerators = new
         Gee.HashMultiMap<string, string> ();
 
@@ -47,7 +51,10 @@ public class Vcomic.Services.ActionManager : Object {
         {ACTION_NEXT_PAGE, action_next_page},
         {ACTION_PREVIOUS_PAGE, action_previous_page},
         {ACTION_NUM_PAGE, action_num_page},
-        {ACTION_QUIT, action_quit}
+        {ACTION_QUIT, action_quit},
+        {ACTION_CONFIG, action_config},
+        {ACTION_ABOUT, action_about},
+        {ACTION_FULLSCREEN, action_fullscreen}
     };
 
     public ActionManager (Vcomic.Application app_vcomic,
@@ -99,8 +106,20 @@ public class Vcomic.Services.ActionManager : Object {
         print("Set page num");
     }
 
+    private void action_about() {
+        print("Acerca de");
+    }
+
+    private void action_fullscreen() {
+        print("Full screen\n");
+    }
+
     public static void action_from_group (string action_name,
         ActionGroup? action_group){
         action_group.activate_action(action_name, null);
+    }
+
+    public void action_config(){
+        print("Configurar");
     }
 }

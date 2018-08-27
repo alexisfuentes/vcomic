@@ -47,15 +47,27 @@ public class Vcomic.Layouts.HeaderBar : Gtk.HeaderBar {
             Vcomic.Services.ActionManager.ACTION_OPEN_COMIC;
 
         var btnfullscreen = new Gtk.Button();
-        btnfullscreen.set_label("full");
+        var imbtnfull = new Gtk.Image();
+        imbtnfull.set_from_file("../data/images/16/fullscreen.png");
+        btnfullscreen.set_image(imbtnfull);
+        btnfullscreen.action_name = Vcomic.Services.ActionManager.PREFIX +
+            Vcomic.Services.ActionManager.ACTION_FULLSCREEN;
 
         var btnextpage = new Gtk.Button();
-        btnextpage.set_label("Next");
+        var imbtnnp = new Gtk.Image();
+        imbtnnp.set_from_file("../data/images/16/next.png");
+        btnextpage.set_image(imbtnnp);
+        btnextpage.action_name = Vcomic.Services.ActionManager.PREFIX + 
+            Vcomic.Services.ActionManager.ACTION_NEXT_PAGE;
 
         var etpage = new Gtk.Entry();
 
         var btnprevious = new Gtk.Button();
-        btnprevious.set_label("Previous");
+        var imbtnprevious = new Gtk.Image();
+        imbtnprevious.set_from_file("../data/images/16/preview.png");
+        btnprevious.set_image(imbtnprevious);
+        btnprevious.action_name = Vcomic.Services.ActionManager.PREFIX + 
+            Vcomic.Services.ActionManager.ACTION_PREVIOUS_PAGE;
 
         // Crear el menu que ira dentro del popover
         var menu = new GLib.Menu();
@@ -64,9 +76,11 @@ public class Vcomic.Layouts.HeaderBar : Gtk.HeaderBar {
             Vcomic.Services.ActionManager.PREFIX + 
             Vcomic.Services.ActionManager.ACTION_CONFIG
         );
-        menu.append("Acerca de", "about_app");
-
-        var about_action = new SimpleAction("about_app", null);
+        menu.append(
+            "Acerca de",
+            Vcomic.Services.ActionManager.PREFIX + 
+            Vcomic.Services.ActionManager.ACTION_ABOUT
+        );
 
         // Creando elemento Popover
         var menu_popover = new Gtk.Popover(btnconfig);
@@ -80,6 +94,11 @@ public class Vcomic.Layouts.HeaderBar : Gtk.HeaderBar {
         });
 
         pack_end(btnconfig);
+        pack_end(btnfullscreen);
         pack_end(btnopen);
+
+        pack_start(btnprevious);
+        pack_start(etpage);
+        pack_start(btnextpage);
     }
 }
