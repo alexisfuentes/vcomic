@@ -22,6 +22,9 @@ executable(
     'Window.vala',
 
     'Layouts/HeaderBar.vala',
+    'Layouts/Main.vala',
+    'Layouts/ListStore.vala',
+    
     'Services/ActionManager.vala',
     asresources,
     dependencies: [
