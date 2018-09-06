@@ -25,7 +25,7 @@ public class Vcomic.Layouts.Main : Gtk.Paned {
     /***
      * Lista de páginas del comic
      */
-    public Vcomic.Layouts.ListStore pages;
+    public Vcomic.Layouts.TreeView pages;
 
     public Gtk.Stack pages_stack;
     public Gtk.Stack main_stack;
@@ -41,5 +41,14 @@ public class Vcomic.Layouts.Main : Gtk.Paned {
         position = 240;
         pages_stack = new Gtk.Stack();
         
+        build_ui();
+    }
+
+    public void build_ui() {
+        var labelt = new Gtk.Label("Arbol");
+        this.add1(labelt);
+
+        var labeli = new Gtk.Label("Imagen");
+        this.add2(labeli);
     }
 }

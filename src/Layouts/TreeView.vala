@@ -22,21 +22,5 @@
 public class Vcomic.Layouts.TreeView : Gtk.TreeView {
     public weak Vcomic.Window window { get; construct; }
 
-    public ListStore(){
-        Object(
-            typeof (Gdk.Pixbuf)
-        );
-        // Creamos columna que contendra las images
-        AppendColumn ("Pages", new Gtk.CellRendererPixbuf (), "pixbuf", 0);
-    }
-
-    /**
-     * Lista de imagenes a mostrar
-     */
-    public void SetListImages (List<Gdk.Pixbuf> Images){
-        // Mostrar miniaturas de las páginas
-        Images.foreach ((img) => {
-            AppendValues(img);
-        });
-    }
+    
 }

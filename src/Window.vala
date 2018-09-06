@@ -28,6 +28,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
     // Elementos publicos
     public Vcomic.Layouts.HeaderBar titlebar;
     public Vcomic.Services.ActionManager action_manager;
+    public Vcomic.Layouts.Main main;
 
     public Window (Vcomic.Application app_comic) {
         Object (
@@ -42,6 +43,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
         add_accel_group(accel_group);
         titlebar = new Vcomic.Layouts.HeaderBar(this);
         action_manager = new Vcomic.Services.ActionManager(app, this);
+        main = new Vcomic.Layouts.Main(this);
 
         // Crear la interfaz
         build_ui();
@@ -71,7 +73,7 @@ public class Vcomic.Window : Gtk.ApplicationWindow {
             return before_destroy();
         });*/
 
-        // add(main);
+        add(main);
     }
 
     public void show_app() {
